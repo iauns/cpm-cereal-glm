@@ -35,16 +35,15 @@ endif()
 
 # ++ MODULE: Cereal
 CPM_AddModule("es_cereal"
-  SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../cpm-es-cereal"
-  EXPORT_MODULE TRUE
-  )
+  GIT_REPOSITORY "https://github.com/iauns/cpm-es-cereal"
+  GIT_TAG "origin/master"
+  EXPORT_MODULE TRUE)
 
 # ++ MODULE: GLM
 CPM_AddModule("glm"
   GIT_REPOSITORY "https://github.com/iauns/cpm-glm"
   GIT_TAG "1.0.2"
-  USE_EXISTING_VER TRUE
-  )
+  USE_EXISTING_VER TRUE)
 
 # This call will ensure all include directories and definitions are present
 # in the target. These correspond to the modules that we added above.

@@ -46,9 +46,11 @@ if (NOT EXISTS ${CPM_DIR}/CPM.cmake)
 endif()
 include(${CPM_DIR}/CPM.cmake)
 
-# ++ MODULE: Entity System
+# ++ MODULE: ES Cereal
 CPM_AddModule("es_cereal"
-  SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../cpm-es-cereal")
+  GIT_REPOSITORY "https://github.com/iauns/cpm-es-cereal"
+  GIT_TAG "origin/master"
+  )
 
 # ++ MODULE: Cereal glm
 CPM_AddModule("cereal_glm"
