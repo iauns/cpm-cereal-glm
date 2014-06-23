@@ -33,10 +33,11 @@ struct CompPosition
   static const char* getName() {return "render:CompPosition";}
 
   static int SerializeCalls;
-  void serialize(cereal::ComponentSerialize& s)
+  bool serialize(cereal::ComponentSerialize& s, uint64_t /* entityID */)
   {
     ++SerializeCalls;
     s.serialize("pos", position);
+    return true;
   }
 };
 
@@ -61,10 +62,11 @@ struct CompHomPos
   static const char* getName() {return "render:CompHomPos";}
 
   static int SerializeCalls;
-  void serialize(cereal::ComponentSerialize& s)
+  bool serialize(cereal::ComponentSerialize& s, uint64_t /* entityID */)
   {
     ++SerializeCalls;
     s.serialize("pos", position);
+    return true;
   }
 };
 int CompHomPos::SerializeCalls = 0;
@@ -91,11 +93,12 @@ struct CompGameplay
   static const char* getName() {return "render:CompGameplay";}
 
   static int SerializeCalls;
-  void serialize(cereal::ComponentSerialize& s)
+  bool serialize(cereal::ComponentSerialize& s, uint64_t /* entityID */)
   {
     ++SerializeCalls;
     s.serialize("health", health);
     s.serialize("armor", armor);
+    return true;
   }
 };
 int CompGameplay::SerializeCalls = 0;

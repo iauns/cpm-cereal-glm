@@ -35,10 +35,11 @@ struct CompMat3
   static const char* getName() {return "ren:mat3";}
 
   static int SerializeCalls;
-  void serialize(cereal::ComponentSerialize& s)
+  bool serialize(cereal::ComponentSerialize& s, uint64_t /* entityID */)
   {
     ++SerializeCalls;
     s.serialize("m3", rotation);
+    return true;
   }
 };
 
@@ -64,10 +65,11 @@ struct CompMat4
   static const char* getName() {return "ren:mat4";}
 
   static int SerializeCalls;
-  void serialize(cereal::ComponentSerialize& s)
+  bool serialize(cereal::ComponentSerialize& s, uint64_t /* entityID */)
   {
     ++SerializeCalls;
     s.serialize("m4", transform);
+    return true;
   }
 };
 int CompMat4::SerializeCalls = 0;
