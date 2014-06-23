@@ -390,7 +390,7 @@ TEST(EntitySystem, BasicConstruction)
   // check regarding the structure of the generated document.
 
   // Clear all components.
-  core->clearAllComponentContainers();
+  core->clearAllComponentContainersImmediately();
 
   // Now serialize all components again.
   core->deserializeComponentCreate(root);
@@ -417,7 +417,7 @@ TEST(EntitySystem, BasicConstruction)
   Tny_free(root);
 
   // Clear all of the components before reserializing.
-  core->clearAllComponentContainers();
+  core->clearAllComponentContainersImmediately();
 
   Tny* reserialized = cereal::CerealCore::loadTny(data, dataSize);
   cereal::CerealCore::freeTnyDataPtr(data);
